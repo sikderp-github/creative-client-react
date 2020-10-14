@@ -1,0 +1,11 @@
+.feedback-card img{
+height: 100px;
+}
+
+.feedback-card{
+  border: 1px solid #BFBFBF;
+box-sizing: border-box;
+border-radius: 4px;
+margin-left: 80px;
+margin-top: 50px;
+}
