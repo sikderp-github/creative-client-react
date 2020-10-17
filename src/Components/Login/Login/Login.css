@@ -1,0 +1,26 @@
+.login-container img{
+    margin-top: 3%;
+    height: 20px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#login-label {
+    font-weight: bolder;
+    font-size: 30px;
+    justify-content: center;
+}
+
+.login-area{
+    height: 300px;
+    width: 70%;
+    margin: auto;
+    margin-top: 5px;
+    padding: 20%;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.googleSign{
+    align-items: center;
+    justify-content: space-around;
+}

@@ -10,20 +10,19 @@ const Navbar = () => {
                 <span class="navbar-toggler-icon"></span>
                 <span className="navbar-toggler-icon"></span>
             </button>
-
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item active">
                         <Link className="nav-link mr-5" to="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link mr-5" to="/portfolio">Our Portfolio</Link>
+                        <Link className="nav-link mr-5" to="/">Our Portfolio</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link mr-5" to="/dashboard">Our Team</Link>
+                        <Link className="nav-link mr-5" to="/">Our Team</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link mr-5" to="/contact">Contact Us</Link>
+                        <Link className="nav-link mr-5" to="/addService">Contact Us</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link mr-5 btn btn-dark text-white" to="/login">Login</Link>

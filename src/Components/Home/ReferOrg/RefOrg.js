@@ -8,8 +8,8 @@ import airbnb from '../../../images/logos/airbnb.png';
 
 const RefOrg = () => {
     return (
-        <div className="row ref-org">
-            <div className="col-md-2 d-flex justify-content-center mx-auto">
+        <div className="row container-fluid ref-org">
+            <div className="col-md-2 sm-6 col-12 d-flex justify-content-center mx-auto">
                 <div>
                     <img src={slack} alt="" />
                 </div>

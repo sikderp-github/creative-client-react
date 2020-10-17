@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AwserviceDetails from '../AwservicesDetails/AwserviceDetails';
+import './AwesomeServices.css';
 
 const awServices = [
     {
@@ -20,16 +22,34 @@ const awServices = [
 
 ]
 
-
 const AwesomeServices = () => {
+    const handleAddService = () => {
+        console.log('object');
+        fetch('http://localhost:5000/addServices', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(awServices)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
+    }
+
     return (
-        <div>
-            <h1 className="text-center">Provide awesome <span className="text-success">services</span> </h1>
-            <div className="row">
+        <div className="awServices-container">
+            <h1 className="text-center mb-5">Provide awesome <span className="text-success">services</span> </h1>
+            <Link to="/orders" onClick={handleAddService}><div className="row">
                 {
                     awServices.map(service => <AwserviceDetails service={service}></AwserviceDetails>)
                 }
-            </div>
+            </div> </Link>
         </div>
     );
 };

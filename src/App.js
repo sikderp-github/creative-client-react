@@ -4,43 +4,38 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import './App.css';
+import AddService from './Components/AdminPages/AddService/AddService';
+import Admin from './Components/AdminPages/Admin/Admin';
+import AllServices from './Components/AdminPages/AllServices/AllServices';
+import PlaceOrder from './Components/CustomersPages/PlaceOrder/PlaceOrder';
+import ServiceReview from './Components/CustomersPages/ServiceReview/ServiceReview';
+import ServiceStatus from './Components/CustomersPages/ServiceStatus/ServiceStatus';
 import Home from './Components/Home/Home/Home';
 import Login from './Components/Login/Login/Login';
+import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
+import NoMatch from './Components/NoMatch/NoMatch';
 
 export const UserContext = createContext();
 
-function App() {
+const App = () => {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
-          <Route path="/">
-            <Home></Home>
-          </Route>
-
-          {/* <Route path="/appointment">
-            <Appointment></Appointment>
-          </Route>
-          <PrivateRoute path="/dashboard">
-            <Dashboard></Dashboard>
-          </PrivateRoute>
-          <PrivateRoute path="/allPatients">
-            <AllPatients></AllPatients>
-          </PrivateRoute>
-          <Route path="/addDoctor">
-            <AddDoctor></AddDoctor>
-          </Route> */}
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/orders" component={PlaceOrder} />
+          <Route path="/customerstatus" component={ServiceStatus} />
+          <Route path="/review" component={ServiceReview} />
+          <Route path="/addService" component={AddService} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/allServices" component={AllServices} />
+          <Route path="/login" component={Login} />
+          <Route exact path="/" component={Home} />
+          <Route path="*" component={NoMatch} />
         </Switch>
       </Router>
-    </UserContext.Provider>
+    </UserContext.Provider >
   );
 }
 
