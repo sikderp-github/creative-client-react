@@ -29,7 +29,7 @@ const AddService = () => {
         formData.append('title', service.title);
         formData.append('description', service.description);
 
-        fetch('http://localhost:5000/addServices1', {
+        fetch('http://localhost:4000/addServices1', {
             method: 'POST',
             body: formData
         })
@@ -54,27 +54,13 @@ const AddService = () => {
                 </div>
                 <div className="row order-form2">
                     <form onSubmit={handleSubmit}>
-                        {/* <div className="col">
-                            <label><h4>Service Title</h4></label> <br />
-                            <input className="form-input1" name="name" defaultValue="Enter title" ref={register} />
-                        </div>
-                        <div className="col">
-                            <label><h4>Icon</h4></label> <br />
-                            <button className="btn btn-outline-success file-btn1">Upload Image</button>
-                        </div>
-                        <br />
-                        <div className="col mt-5">
-                            <label><h4>Description</h4></label> <br />
-                            <input className="form-input1 details" name="project" defaultValue="Enter description" ref={register} />
-                        </div>
-                        <input className="btn btn-success text-white d-flex justify-content-end" defaultValue="Send" type="submit" /> */}
                         <div className="row">
                             <div className="form-group col-md-4">
                                 <label htmlFor="exampleInputPassword1">Title</label>
                                 <input onBlur={handleBlur} type="text" className="form-control" name="title" placeholder="Name" />
                             </div>
                             <div className="form-group col-md-4">
-                                <label htmlFor="exampleInputPassword1">Upload a image</label>
+                                <label htmlFor="exampleInputPassword1">Upload image</label>
                                 <input onChange={handleFileChange} type="file" className="form-control" id="exampleInputPassword1" placeholder="Picture" />
                             </div>
                             <div className="form-group col-md-6">

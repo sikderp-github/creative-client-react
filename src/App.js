@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,8 +20,15 @@ export const UserContext = createContext();
 
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [allbookings, setAllbookings] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/allbookings')
+      .then(res => res.json())
+      .then(data => setAllbookings(data))
+  }, [])
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser, allbookings, setAllbookings]}>
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />

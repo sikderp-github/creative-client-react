@@ -6,7 +6,7 @@ import './Admin.css';
 
 const Admin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
         <div>
@@ -22,7 +22,7 @@ const Admin = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="col">
                             <label><h4>Email</h4></label> <br />
-                            <input className="form-input1" name="email" defaultValue="abc@gmail.com" ref={register} />
+                            <input className="form-input1" name="email" placeholder="Your email" ref={register} />
                         </div>
                         <div className="col mt-2">
                             <input className="btn btn-success text-white d-flex flex-end" defaultValue="Send" type="submit" />

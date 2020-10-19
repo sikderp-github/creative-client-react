@@ -4,7 +4,8 @@ import Sidebar from '../../Shared/Sidebar/Sidebar';
 import './ServiceStatus.css';
 
 const ServiceStatus = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, allbookings] = useContext(UserContext);
+    // const { bkService, description } = allbookings;
     return (
         <div>
             <div className="sidebar-order">
@@ -17,14 +18,18 @@ const ServiceStatus = () => {
                 </div>
                 <div className="row order-form1">
                     <div className="col-md-4 status-container">
-                        <div className="d-flex mb-3 justify-content-around">
-                            <img src="" alt="" />
-                            <button>Pending</button>
-                        </div>
-                        <div className="text-center">
-                            <h2>Title</h2>
-                            <p>description</p>
-                        </div>
+                        {
+                            allbookings.map(book =>
+                                <div className="text-center">
+                                    <div className="d-flex mb-3 justify-content-around">
+                                        <img style={{ height: '50px' }} alt="" src={`data:image/png;base64,${book.image.img}`} />
+                                        <button>Pending</button>
+                                    </div>
+                                    <h2>{book.bkService}</h2>
+                                    <p>{book.description}</p>
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
             </div>
