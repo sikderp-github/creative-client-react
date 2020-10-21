@@ -5,9 +5,17 @@ import Sidebar from '../../Shared/Sidebar/Sidebar';
 import './Admin.css';
 
 const Admin = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const { loggedInUser, setLoggedInUser, setAdmin } = useContext(UserContext);
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        fetch('http://localhost:4000/addAdmin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(docs => setAdmin(docs))
+    };
     return (
         <div>
             <div className="sidebar-order">
@@ -16,7 +24,7 @@ const Admin = () => {
             <div className="mr-2 order-form">
                 <div className="d-flex justify-content-around">
                     <h3>Add Services</h3>
-                    <h5>{loggedInUser.name}Login</h5>
+                    <h5>{loggedInUser.name}</h5>
                 </div>
                 <div className="row order-form1">
                     <form onSubmit={handleSubmit(onSubmit)}>

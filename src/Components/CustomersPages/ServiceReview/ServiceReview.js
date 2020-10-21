@@ -5,25 +5,11 @@ import Sidebar from '../../Shared/Sidebar/Sidebar';
 import './ServiceReview.css';
 
 const ServiceReview = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
     const { register, handleSubmit, errors } = useForm();
-
-    // const onSubmit = data => {
-    //     fetch('http://localhost:4000/addReview', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(response => response.json())
-    //         .then(data1 => {
-    //             console.log(data1)
-    //         })
-    //         .catch(error => {
-    //             console.error(error)
-    //         })
-    // }
     const [bookings, setBookings] = useState({});
     const [file, setFile] = useState(null);
+
     const handleBlur = e => {
         const newInfo = { ...bookings };
         newInfo[e.target.name] = e.target.value;
@@ -34,8 +20,6 @@ const ServiceReview = () => {
         const newFile = e.target.files[0];
         setFile(newFile);
     }
-
-
 
     const onSubmit = () => {
         const formData = new FormData()
@@ -56,7 +40,6 @@ const ServiceReview = () => {
             .catch(error => {
                 console.error(error)
             })
-
     }
 
     return (
@@ -67,7 +50,7 @@ const ServiceReview = () => {
             <div className="mr-2 order-form">
                 <div className="d-flex justify-content-around">
                     <h3>Order</h3>
-                    <h5>{loggedInUser.name}Login</h5>
+                    <h5>{loggedInUser.name}</h5>
                 </div>
                 <div className="order-form1">
                     <form onSubmit={handleSubmit(onSubmit)}>

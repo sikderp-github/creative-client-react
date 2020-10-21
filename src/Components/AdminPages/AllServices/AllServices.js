@@ -7,7 +7,7 @@ import Sidebar from '../../Shared/Sidebar/Sidebar';
 import './AllServices.css';
 
 const AllServices = () => {
-    const [loggedInUser, setLoggedInUser, allbookings] = useContext(UserContext);
+    const { loggedInUser, setLoggedInUser, allbookings } = useContext(UserContext);
 
     return (
         <>
@@ -17,7 +17,7 @@ const AllServices = () => {
             <div className="mr-2 order-form">
                 <div className="d-flex justify-content-around">
                     <h3>Service list</h3>
-                    <h5>{loggedInUser.name}Login</h5>
+                    <h5>{loggedInUser.name}</h5>
                 </div>
                 <div className="order-form1">
                     <table className="table table-borderless">

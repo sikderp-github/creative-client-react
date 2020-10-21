@@ -24,25 +24,6 @@ import './AwesomeServices.css';
 
 const AwesomeServices = () => {
 
-    // const handleAddService = () => {
-    //     console.log('object');
-    //     fetch('http://localhost:4000/addServices', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(awServices)
-    //     })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    //         .catch(error => {
-    //             console.error(error)
-    //         })
-
-    // }
-
     const [services, setServices] = useState([])
 
     useEffect(() => {

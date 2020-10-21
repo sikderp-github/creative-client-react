@@ -21,23 +21,39 @@ export const UserContext = createContext();
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [allbookings, setAllbookings] = useState([]);
+  const [admin, setAdmin] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:4000/allbookings')
       .then(res => res.json())
       .then(data => setAllbookings(data))
   }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:4000/allAdmin')
+      .then(res => res.json())
+      .then(data => setAdmin(data))
+  }, [])
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser, allbookings, setAllbookings]}>
+    <UserContext.Provider value={{ loggedInUser, setLoggedInUser, allbookings, setAllbookings, admin, setAdmin }}>
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/orders" component={PlaceOrder} />
-          <Route path="/customerstatus" component={ServiceStatus} />
-          <Route path="/review" component={ServiceReview} />
-          <Route path="/addService" component={AddService} />
-          <Route path="/admin" component={Admin} />
-          <Route path="/allServices" component={AllServices} />
+          <PrivateRoute path="/orders">
+            <PlaceOrder />
+          </PrivateRoute>
+          <PrivateRoute path="/customerstatus">
+            <ServiceStatus />
+          </PrivateRoute>
+          <PrivateRoute path="/addService">
+            <AddService />
+          </PrivateRoute>
+
+          <PrivateRoute path="/customerstatus" component={ServiceStatus} />
+          <PrivateRoute path="/review" component={ServiceReview} />
+          <PrivateRoute path="/addService" component={AddService} />
+          <PrivateRoute path="/admin" component={Admin} />
+          <PrivateRoute path="/allServices" component={AllServices} />
           <Route path="/login" component={Login} />
           <Route exact path="/" component={Home} />
           <Route path="*" component={NoMatch} />

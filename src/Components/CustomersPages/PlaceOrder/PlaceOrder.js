@@ -1,15 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { useForm } from "react-hook-form";
 import { UserContext } from '../../../App';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 import './PlaceOrder.css';
 
-
-
 const PlaceOrder = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    // const { register, handleSubmit, errors } = useForm();
-    // const onSubmit = data => console.log(data);
+    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
 
     const [bookings, setBookings] = useState({});
     const [file, setFile] = useState(null);
@@ -45,19 +40,18 @@ const PlaceOrder = () => {
             .catch(error => {
                 console.error(error)
             })
-
     };
 
     return (
         <section>
-            <div className="container-fluid ">
+            <div className="container-fluid">
                 <div className="col-md-3 sidebar-order">
                     <Sidebar />
                 </div>
                 <div className="mr-2 order-form">
                     <div className="d-flex justify-content-around">
                         <h3>Order</h3>
-                        <h5>{loggedInUser.name}Login</h5>
+                        <h5>{loggedInUser.name}</h5>
                     </div>
                     <div className="order-form1">
                         <form onSubmit={handleOrderSubmit}>

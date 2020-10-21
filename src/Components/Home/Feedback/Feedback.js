@@ -3,28 +3,6 @@ import { useEffect } from 'react';
 import FeedbackDetails from '../FeedbackDetails/FeedbackDetails';
 import './Feedback.css'
 
-// const clients = [
-//     {
-//         name: 'Nash Patrik',
-//         title: 'CEO, Manpol',
-//         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel officia laborum magni voluptate doloribus nesciunt iure ratione nostrum distinctio aspernatur.",
-//         picUrl: 'https://i.imgur.com/YoJzW63.png'
-//     },
-//     {
-//         name: 'Miriam Barron',
-//         title: 'CEO, Manpol',
-//         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel officia laborum magni voluptate doloribus nesciunt iure ratione nostrum distinctio aspernatur.',
-//         picUrl: 'https://i.imgur.com/ehobmnG.png'
-//     },
-//     {
-//         name: 'Bria Manone',
-//         title: 'CEO, Manpol',
-//         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel officia laborum magni voluptate doloribus nesciunt iure ratione nostrum.',
-//         picUrl: 'https://i.imgur.com/tFByDjz.png'
-//     }
-
-// ]
-
 const Feedback = () => {
     const [reviews, setReviews] = useState([])
 

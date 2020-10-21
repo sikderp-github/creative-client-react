@@ -1,14 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-// import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 import './AddService.css';
 
 const AddService = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    // const { register, handleSubmit } = useForm();
+    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
     const [service, setService] = useState({});
     const [file, setFile] = useState(null);
     const handleBlur = e => {
@@ -50,7 +48,7 @@ const AddService = () => {
             <div className="mr-2 order-form">
                 <div className="d-flex justify-content-around">
                     <h3>Add Services</h3>
-                    <h5>{loggedInUser.name}Login</h5>
+                    <h5>{loggedInUser.name}</h5>
                 </div>
                 <div className="row order-form2">
                     <form onSubmit={handleSubmit}>
