@@ -5,7 +5,7 @@ import Sidebar from '../../Shared/Sidebar/Sidebar';
 import './ServiceReview.css';
 
 const ServiceReview = () => {
-    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
     const { register, handleSubmit, errors } = useForm();
     const [bookings, setBookings] = useState({});
     const [file, setFile] = useState(null);
@@ -29,7 +29,7 @@ const ServiceReview = () => {
         formData.append('company', bookings.company);
         formData.append('description', bookings.description);
 
-        fetch('http://localhost:4000/addReview', {
+        fetch('https://tranquil-thicket-30168.herokuapp.com/addReview', {
             method: 'POST',
             body: formData
         })

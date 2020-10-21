@@ -29,7 +29,7 @@ const PlaceOrder = () => {
         formData.append('description', bookings.description);
         formData.append('price', bookings.price);
 
-        fetch('http://localhost:4000/orderServices', {
+        fetch('https://tranquil-thicket-30168.herokuapp.com/orderServices', {
             method: 'POST',
             body: formData
         })

@@ -24,13 +24,13 @@ const App = () => {
   const [admin, setAdmin] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/allbookings')
+    fetch('https://tranquil-thicket-30168.herokuapp.com/allbookings')
       .then(res => res.json())
       .then(data => setAllbookings(data))
   }, [])
 
   useEffect(() => {
-    fetch('http://localhost:4000/allAdmin')
+    fetch('https://tranquil-thicket-30168.herokuapp.com/allAdmin')
       .then(res => res.json())
       .then(data => setAdmin(data))
   }, [])

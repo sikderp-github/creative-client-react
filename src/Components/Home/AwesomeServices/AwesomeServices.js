@@ -27,7 +27,7 @@ const AwesomeServices = () => {
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:4000/services')
+        fetch('https://tranquil-thicket-30168.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])

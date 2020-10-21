@@ -8,7 +8,7 @@ const Admin = () => {
     const { loggedInUser, setLoggedInUser, setAdmin } = useContext(UserContext);
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:4000/addAdmin', {
+        fetch('https://tranquil-thicket-30168.herokuapp.com/addAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
